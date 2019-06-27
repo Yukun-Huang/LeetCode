@@ -70,7 +70,7 @@ public:
 };
 
 
-class Solution {
+class Solution_complex {
 public:
     vector<vector<int>> threeSum(vector<int>& nums) {
         vector<vector<int>> output;
@@ -112,6 +112,49 @@ public:
                 }
                 else{
                     right++;
+                }
+            }
+        }
+        return output;
+    }
+};
+
+
+class Solution {
+public:
+    vector<vector<int>> threeSum(vector<int>& nums) {
+        vector<vector<int>> output;
+        int n = nums.size();
+        int left = 0, right = 0;
+        vector<int> sol(3, 0);
+        sort(nums.begin(), nums.end());
+        for (int i = 0 ; i < n - 2 ; ++i){
+            if(nums[0] > 0) break;
+            if (i > 0 && nums[i] == nums[i-1])
+                continue;
+            sol[0] = nums[i];
+            left = i + 1;
+            right = n - 1;
+            while(left < right){
+                int tmp = nums[left] + nums[right] + nums[i];
+                if(!tmp){
+                    sol[1] = nums[left];
+                    sol[2] = nums[right];
+                    output.push_back(sol);
+                    do{
+                        left++;
+                        if (left < 0 || left > n-1) break;
+                    }while(nums[left] == nums[left-1]);
+                    do{
+                        right--;
+                        if (right < 0 || right > n-2) break;
+                    }while(nums[right] == nums[right+1]);
+                }
+                else if(tmp > 0){
+                    right--;
+                }
+                else{
+                    left++;
                 }
             }
         }
