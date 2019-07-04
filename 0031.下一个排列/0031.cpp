@@ -1,7 +1,7 @@
-// 1.´ÓºóÍùÇ°±éÀú£¬Èç¹ûÕÒµ½Ò»¸öÐ¡ÓÚnums[n-1]µÄÊýÎ»i£¬¼ÇÂ¼µ±Ç°Î»ÖÃ
-// 2.´Ói+1Î»ÖÃ¿ªÊ¼´ÓÇ°Íùºó±éÀú£¬ÕÒµ½Ò»¸ö´óÓÚnums[i]µÄ×îÐ¡Êý
-// 3.½«nums[i]Óë¸Ã×îÐ¡Êý½»»»Î»ÖÃ£¬½Ó×Å°Ñ[i+1,n)·¶Î§ÄÚµÄÊýÖØÐÂÅÅÐò
-// 4.½áÊø
+// 1.ä»ŽåŽå¾€å‰éåŽ†ï¼Œå¦‚æžœæ‰¾åˆ°ä¸€ä¸ªå°äºŽnums[n-1]çš„æ•°ä½iï¼Œè®°å½•å½“å‰ä½ç½®
+// 2.ä»Ži+1ä½ç½®å¼€å§‹ä»Žå‰å¾€åŽéåŽ†ï¼Œæ‰¾åˆ°ä¸€ä¸ªå¤§äºŽnums[i]çš„æœ€å°æ•°
+// 3.å°†nums[i]ä¸Žè¯¥æœ€å°æ•°äº¤æ¢ä½ç½®ï¼ŒæŽ¥ç€æŠŠ[i+1,n)èŒƒå›´å†…çš„æ•°é‡æ–°æŽ’åº
+// 4.ç»“æŸ
 
 class Solution {
 public:
@@ -13,14 +13,14 @@ public:
 				for (int j = i + 1; j<n; j++) {
 					if (nums[j] <= nums[i]) {
 						swap(nums, j - 1, i);
-						sort(nums.begin() + i + 1, nums.end());
+						reverse(nums.begin() + i + 1, nums.end());
 						ok_flag = true;
 						break;
 					}
 				}
 				if (!ok_flag) {
 					swap(nums, n - 1, i);
-					sort(nums.begin() + i + 1, nums.end());
+					reverse(nums.begin() + i + 1, nums.end());
 					ok_flag = true;
 					break;
 				}
