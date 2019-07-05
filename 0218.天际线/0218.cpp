@@ -31,11 +31,8 @@ typedef unsigned long long uLL;
 typedef long long LL;
 
 /*
- 设计一个数据结构，对所有建筑物的左右端点进行存储和排序
- 设计一个数据结构，能够对当前遍历得到的端点进行查询，查询信息包括所属建筑物端的位置、高度
-
- multimap: x -> (h, pos='l' or 'r')
- multiset: 记录高度
+ 设计一个数据结构，对所有建筑物的左右端点进行存储、排序、查询 -> vector<vector<int>>
+ 设计一个数据结构，能够对当前的高度从大到小排序，且允许增添和删除元素 -> multiset实现最大堆
 */
 
 
